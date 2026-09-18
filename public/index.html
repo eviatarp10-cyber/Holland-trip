@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>הטיול שלנו להולנד</title>
+  <meta name="description" content="הלוז היומי של הטיול המשפחתי להולנד">
+  <meta name="theme-color" content="#f37021">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌷</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 id="trip-title">הטיול שלנו להולנד</h1>
+      <p id="trip-meta" class="trip-meta"></p>
+    </div>
+    <nav id="daystrip" class="daystrip" aria-label="בחירת יום"></nav>
+  </header>
+
+  <main id="day-view" class="day-view" aria-live="polite"></main>
+
+  <footer class="footer">
+    <button id="btn-all" class="link-btn" type="button">הצגת כל הימים ברצף</button>
+  </footer>
+
+  <script src="itinerary.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
