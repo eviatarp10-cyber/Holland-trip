@@ -431,3 +431,8 @@ h1 {
 }
 .info-rows dt { color: var(--text-dim); font-weight: 600; }
 .info-rows dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- bidi ---------- */
+
+.ltr { direction: ltr; unicode-bidi: isolate; }
+.entry-time, .sheet-sub { unicode-bidi: isolate; }

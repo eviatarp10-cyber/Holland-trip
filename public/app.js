@@ -44,10 +44,30 @@
     return "יום " + WEEKDAYS[d.getDay()] + ", " + d.getDate() + " ב" + MONTHS[d.getMonth()];
   }
 
+  // טווחי מספרים ("15:00–16:00", "20–25", "18–20/9") מתהפכים בטקסט עברי,
+  // כי הבידי מתייחס למקף בין שני מספרים כאל תו ימין-לשמאל. עוטפים אותם ב-LTR.
+  var RANGE_RE = /\d[\d:.,]*(?:\s*[\u2013\-\/]\s*\d[\d:.,]*)+/g;
+
+  function addText(node, str) {
+    str = String(str);
+    var last = 0, m;
+    RANGE_RE.lastIndex = 0;
+    while ((m = RANGE_RE.exec(str))) {
+      if (m.index > last) node.appendChild(document.createTextNode(str.slice(last, m.index)));
+      var span = document.createElement("span");
+      span.className = "ltr";
+      span.textContent = m[0];
+      node.appendChild(span);
+      last = m.index + m[0].length;
+    }
+    if (last < str.length) node.appendChild(document.createTextNode(str.slice(last)));
+    return node;
+  }
+
   function el(tag, cls, text) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
-    if (text != null) n.textContent = text;
+    if (text != null) addText(n, text);
     return n;
   }
 
@@ -193,7 +213,7 @@
       stay.appendChild(el("span", "day-stay-icon", ICONS.hotel));
       var stayBody = el("div");
       stayBody.appendChild(el("strong", null, "לינה: "));
-      stayBody.appendChild(document.createTextNode(day.stay));
+      addText(stayBody, day.stay);
       if (day.stayPlace) {
         stayBody.appendChild(document.createTextNode(" "));
         stayBody.appendChild(link(mapsUrl(day.stayPlace), "ניווט ↗", "inline-link"));
@@ -327,7 +347,7 @@
       (section.items || []).forEach(function (row) {
         rows.appendChild(el("dt", null, row.label || ""));
         var dd = el("dd");
-        if (row.value) dd.appendChild(document.createTextNode(row.value));
+        if (row.value) addText(dd, row.value);
         if (row.url) {
           if (row.value) dd.appendChild(document.createTextNode(" "));
           dd.appendChild(link(row.url, row.linkText || "פתיחה ↗", "inline-link"));
