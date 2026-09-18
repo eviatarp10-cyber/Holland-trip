@@ -6,7 +6,13 @@
   <title>הטיול שלנו להולנד</title>
   <meta name="description" content="הלוז היומי של הטיול המשפחתי להולנד">
   <meta name="theme-color" content="#f37021">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌷</text></svg>">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="הולנד">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -26,6 +32,14 @@
   <footer class="footer">
     <button id="btn-all" class="link-btn" type="button">הצגת כל הימים ברצף</button>
   </footer>
+
+  <dialog id="sheet" class="sheet" aria-labelledby="sheet-title">
+    <div class="sheet-inner">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <button id="sheet-close" class="sheet-close" type="button" aria-label="סגירה">✕</button>
+      <div id="sheet-body" class="sheet-body"></div>
+    </div>
+  </dialog>
 
   <script src="itinerary.js"></script>
   <script src="app.js"></script>

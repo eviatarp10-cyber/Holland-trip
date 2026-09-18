@@ -1,0 +1,17 @@
+{
+  "name": "הטיול שלנו להולנד",
+  "short_name": "הולנד",
+  "description": "הלוז היומי של הטיול המשפחתי להולנד",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fbf8f4",
+  "theme_color": "#f37021",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
